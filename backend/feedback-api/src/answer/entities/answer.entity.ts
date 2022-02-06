@@ -1,16 +1,19 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('companies')
-export class Company {
+@Entity('answers')
+export class Answer {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
-  name: string;
+  comment: string;
 
   @Column()
-  cnpj: string;
+  question: string;
 
-  @Column({ default: true })
-  isActive: boolean;
+  @Column()
+  alternative: string;
+
+  @Column()
+  quiz: string;
 }

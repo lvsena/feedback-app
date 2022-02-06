@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('companies')
-export class Company {
+@Entity('alternatives')
+export class Alternative {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -9,8 +9,5 @@ export class Company {
   name: string;
 
   @Column()
-  cnpj: string;
-
-  @Column({ default: true })
-  isActive: boolean;
+  value: number;
 }
