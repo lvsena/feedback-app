@@ -4,6 +4,6 @@ import { AlternativeController } from './alternative.controller';
 
 @Module({
   controllers: [AlternativeController],
-  providers: [AlternativeService]
+  providers: [AlternativeService],
 })
 export class AlternativeModule {}

@@ -4,6 +4,6 @@ import { ValuesController } from './values.controller';
 
 @Module({
   controllers: [ValuesController],
-  providers: [ValuesService]
+  providers: [ValuesService],
 })
 export class ValuesModule {}

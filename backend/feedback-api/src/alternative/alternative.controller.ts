@@ -1,8 +1,18 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { AlternativeService } from './alternative.service';
 import { CreateAlternativeDto } from './dto/create-alternative.dto';
 import { UpdateAlternativeDto } from './dto/update-alternative.dto';
 
+@ApiTags('Alternative')
 @Controller('alternative')
 export class AlternativeController {
   constructor(private readonly alternativeService: AlternativeService) {}
@@ -23,7 +33,10 @@ export class AlternativeController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAlternativeDto: UpdateAlternativeDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateAlternativeDto: UpdateAlternativeDto,
+  ) {
     return this.alternativeService.update(+id, updateAlternativeDto);
   }
 

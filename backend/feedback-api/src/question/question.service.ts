@@ -3,13 +3,13 @@ import { CreateQuestionDto } from './dto/create-question.dto';
 import { UpdateQuestionDto } from './dto/update-question.dto';
 
 @Injectable()
-export class QuestionsService {
+export class QuestionService {
   create(createQuestionDto: CreateQuestionDto) {
     return 'This action adds a new question';
   }
 
   findAll() {
-    return `This action returns all questions`;
+    return `This action returns all question`;
   }
 
   findOne(id: number) {
