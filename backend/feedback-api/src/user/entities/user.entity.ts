@@ -1,5 +1,12 @@
 import { Company } from 'src/company/entities/company.entity';
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Quiz } from 'src/quiz/entities/quiz.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  OneToMany,
+} from 'typeorm';
 
 @Entity('users')
 export class User {
@@ -17,4 +24,10 @@ export class User {
 
   @ManyToOne(() => Company, (company) => company.users)
   company: Company;
+
+  @OneToMany(() => Quiz, (quiz) => quiz.evaluated)
+  quizesEvaluated: Quiz[];
+
+  @OneToMany(() => Quiz, (quiz) => quiz.evaluator)
+  quizesEvaluator: Quiz[];
 }

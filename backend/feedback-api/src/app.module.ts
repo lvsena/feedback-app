@@ -15,7 +15,7 @@ import { ValuesModule } from './values/values.module';
 //Entities
 import { Alternative } from './alternative/entities/alternative.entity';
 import { Answer } from './answer/entities/answer.entity';
-import { Availation } from './avaliation/entities/avaliation.entity';
+import { Avaliation } from './avaliation/entities/avaliation.entity';
 import { Category } from './category/entities/category.entity';
 import { Company } from './company/entities/company.entity';
 import { Question } from './question/entities/question.entity';
@@ -35,7 +35,7 @@ import { Value } from './values/entities/value.entity';
       entities: [
         Alternative,
         Answer,
-        Availation,
+        Avaliation,
         Category,
         Company,
         Question,

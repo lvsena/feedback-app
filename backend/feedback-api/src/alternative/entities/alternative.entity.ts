@@ -1,4 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Answer } from 'src/answer/entities/answer.entity';
+import { Category } from 'src/category/entities/category.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  OneToMany,
+} from 'typeorm';
 
 @Entity('alternatives')
 export class Alternative {
@@ -9,5 +17,11 @@ export class Alternative {
   name: string;
 
   @Column()
-  value: number;
+  points: number;
+
+  @ManyToOne(() => Category, (category) => category.questions)
+  category: Category;
+
+  @OneToMany(() => Answer, (answer) => answer.alternative)
+  answers: Answer[];
 }

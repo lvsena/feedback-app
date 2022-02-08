@@ -1,19 +1,24 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Alternative } from 'src/alternative/entities/alternative.entity';
+import { Question } from 'src/question/entities/question.entity';
+import { Quiz } from 'src/quiz/entities/quiz.entity';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
 @Entity('answers')
 export class Answer {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  comment: string;
+  @Column({ nullable: true })
+  comment?: string;
 
-  @Column()
-  question: string;
+  @ManyToOne(() => Alternative, (alternative) => alternative.answers)
+  alternative: Alternative;
 
-  @Column()
-  alternative: string;
+  @ManyToOne(() => Question, (question) => question.answers, {
+    nullable: false,
+  })
+  question: Question;
 
-  @Column()
-  quiz: string;
+  @ManyToOne(() => Quiz, (quiz) => quiz.answers, { nullable: false })
+  quiz: Quiz;
 }
